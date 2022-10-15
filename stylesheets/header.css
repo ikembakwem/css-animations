@@ -62,9 +62,6 @@ header::after {
   font-size: 14px;
 }
 
-/* Animations */
-/* Custom animations */
-
 .animate-pop-in {
   animation: pop-in 0.6s cubic-bezier(0, 0.9, 0.3, 1.2) forwards;
   opacity: 0;
@@ -88,6 +85,22 @@ header::after {
   animation-delay: 1.1s;
 }
 
+.header-down-arrow {
+  position: absolute;
+  bottom: 4vh;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 10;
+}
+
+.header-down-arrow img {
+  animation: fade-slide-up 1s ease-out forwards, pulse 2s 3s ease-out infinite;
+  opacity: 0;
+}
+
+/* Animations */
+/* Custom animations */
 @keyframes fade-slide-down {
   0% {
     opacity: 0;
@@ -113,5 +126,31 @@ header::after {
 @keyframes rotate-up {
   100% {
     transform: rotateZ(-4deg);
+  }
+}
+
+@keyframes fade-slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(4rem);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+    transform: none;
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
   }
 }
