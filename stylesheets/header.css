@@ -13,7 +13,7 @@ header {
 }
 
 header::before {
-  animation: fade-slide-down 2s 0.5s cubic-bezier(0, 0.5, 0, 1) forwards;
+  animation: no-transform 2s 0.5s cubic-bezier(0, 0.5, 0, 1) forwards;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8)),
     url(../images/background.jpg) no-repeat bottom;
   background-size: cover;
@@ -24,6 +24,7 @@ header::before {
   left: 0;
   right: 0;
   opacity: 0;
+  transform: translateY(-4rem);
   z-index: -1;
 }
 
@@ -63,8 +64,9 @@ header::after {
 }
 
 .animate-pop-in {
-  animation: pop-in 0.6s cubic-bezier(0, 0.9, 0.3, 1.2) forwards;
+  animation: no-transform 0.6s cubic-bezier(0, 0.9, 0.3, 1.2) forwards;
   opacity: 0;
+  transform: translateY(-4rem) scale(0.8);
 }
 
 .rocky-dashed {
@@ -92,31 +94,17 @@ header::after {
   right: 0;
   text-align: center;
   z-index: 10;
+  animation: pulse 2s 3s ease-out infinite;
 }
 
 .header-down-arrow img {
-  animation: fade-slide-up 1s ease-out forwards, pulse 2s 3s ease-out infinite;
+  animation: no-transform 1s ease-out forwards;
   opacity: 0;
+  transform: translateY(4rem);
 }
 
 /* Animations */
-/* Custom animations */
-@keyframes fade-slide-down {
-  0% {
-    opacity: 0;
-    transform: translateY(-4rem);
-  }
-  100% {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-@keyframes pop-in {
-  0% {
-    opacity: 0;
-    transform: translateY(-4rem) scale(0.8);
-  }
+@keyframes no-transform {
   100% {
     opacity: 1;
     transform: none;
@@ -126,17 +114,6 @@ header::after {
 @keyframes rotate-up {
   100% {
     transform: rotateZ(-4deg);
-  }
-}
-
-@keyframes fade-slide-up {
-  0% {
-    opacity: 0;
-    transform: translateY(4rem);
-  }
-  100% {
-    opacity: 1;
-    transform: none;
   }
 }
 
